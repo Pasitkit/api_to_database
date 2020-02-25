@@ -1,0 +1,5 @@
+flows:
+  777f0395-8223-4b77-8850-50c59b40a22a: {ver: 1, file: APItoMySQL.snapshot, comments: '',
+    author: anonymous, created: 1582595159518, flowName: APItoMySQL, flowDesc: ''}
+layoutVer: 1
+bucketId: 5462372b-f5f5-4a29-a460-ba733d069189

@@ -1,0 +1,621 @@
+{
+  "header" : {
+    "dataModelVersion" : "3"
+  },
+  "content" : {
+    "flowSnapshot" : {
+      "externalControllerServices" : {
+        "97fc7416-8281-3470-97e5-d8e88d7d99ad" : {
+          "identifier" : "97fc7416-8281-3470-97e5-d8e88d7d99ad",
+          "name" : "DBCPConnectionPool"
+        },
+        "02012382-d0cb-3802-964d-fb5d30cb7e1f" : {
+          "identifier" : "02012382-d0cb-3802-964d-fb5d30cb7e1f",
+          "name" : "AlphaVantageREST"
+        }
+      },
+      "flowContents" : {
+        "comments" : "",
+        "componentType" : "PROCESS_GROUP",
+        "connections" : [ {
+          "backPressureDataSizeThreshold" : "1 GB",
+          "backPressureObjectThreshold" : 10000,
+          "bends" : [ ],
+          "componentType" : "CONNECTION",
+          "destination" : {
+            "comments" : "",
+            "groupId" : "fe98ae04-dd27-3233-926d-c414e4eff355",
+            "id" : "bd26a540-38c5-3007-814e-3f7fbeb8d1aa",
+            "name" : "PutSQL",
+            "type" : "PROCESSOR"
+          },
+          "flowFileExpiration" : "0 sec",
+          "groupIdentifier" : "fe98ae04-dd27-3233-926d-c414e4eff355",
+          "identifier" : "fcb20768-919e-3cf8-b6cc-0d25498e0e89",
+          "labelIndex" : 1,
+          "loadBalanceCompression" : "DO_NOT_COMPRESS",
+          "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+          "name" : "",
+          "partitioningAttribute" : "",
+          "prioritizers" : [ ],
+          "selectedRelationships" : [ "sql" ],
+          "source" : {
+            "comments" : "",
+            "groupId" : "fe98ae04-dd27-3233-926d-c414e4eff355",
+            "id" : "c5a529d6-55b2-3765-94cd-79bc9ae9b2c2",
+            "name" : "ConvertJSONToSQL",
+            "type" : "PROCESSOR"
+          },
+          "zIndex" : 0
+        }, {
+          "backPressureDataSizeThreshold" : "1 GB",
+          "backPressureObjectThreshold" : 10000,
+          "bends" : [ ],
+          "componentType" : "CONNECTION",
+          "destination" : {
+            "comments" : "",
+            "groupId" : "fe98ae04-dd27-3233-926d-c414e4eff355",
+            "id" : "c5a529d6-55b2-3765-94cd-79bc9ae9b2c2",
+            "name" : "ConvertJSONToSQL",
+            "type" : "PROCESSOR"
+          },
+          "flowFileExpiration" : "0 sec",
+          "groupIdentifier" : "fe98ae04-dd27-3233-926d-c414e4eff355",
+          "identifier" : "c5dc8e13-e343-3e5b-93a6-08401c2020bf",
+          "labelIndex" : 1,
+          "loadBalanceCompression" : "DO_NOT_COMPRESS",
+          "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+          "name" : "",
+          "partitioningAttribute" : "",
+          "prioritizers" : [ ],
+          "selectedRelationships" : [ "success" ],
+          "source" : {
+            "comments" : "",
+            "groupId" : "fe98ae04-dd27-3233-926d-c414e4eff355",
+            "id" : "f3ef4ea2-c262-34cf-b16c-1f2506cb853d",
+            "name" : "ConvertAvroToJSON",
+            "type" : "PROCESSOR"
+          },
+          "zIndex" : 0
+        }, {
+          "backPressureDataSizeThreshold" : "1 GB",
+          "backPressureObjectThreshold" : 10000,
+          "bends" : [ ],
+          "componentType" : "CONNECTION",
+          "destination" : {
+            "comments" : "",
+            "groupId" : "fe98ae04-dd27-3233-926d-c414e4eff355",
+            "id" : "b55870cf-5371-3870-8e5b-3d303d32cc67",
+            "name" : "SplitAvro",
+            "type" : "PROCESSOR"
+          },
+          "flowFileExpiration" : "0 sec",
+          "groupIdentifier" : "fe98ae04-dd27-3233-926d-c414e4eff355",
+          "identifier" : "9fcc9653-704e-3c81-b670-b4be5e1b907a",
+          "labelIndex" : 1,
+          "loadBalanceCompression" : "DO_NOT_COMPRESS",
+          "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+          "name" : "",
+          "partitioningAttribute" : "",
+          "prioritizers" : [ ],
+          "selectedRelationships" : [ "success" ],
+          "source" : {
+            "comments" : "",
+            "groupId" : "fe98ae04-dd27-3233-926d-c414e4eff355",
+            "id" : "1c03821f-0bee-3c3d-a0c8-1b485b626068",
+            "name" : "QueryDatabaseTable",
+            "type" : "PROCESSOR"
+          },
+          "zIndex" : 0
+        }, {
+          "backPressureDataSizeThreshold" : "1 GB",
+          "backPressureObjectThreshold" : 10000,
+          "bends" : [ ],
+          "componentType" : "CONNECTION",
+          "destination" : {
+            "comments" : "",
+            "groupId" : "fe98ae04-dd27-3233-926d-c414e4eff355",
+            "id" : "f3ef4ea2-c262-34cf-b16c-1f2506cb853d",
+            "name" : "ConvertAvroToJSON",
+            "type" : "PROCESSOR"
+          },
+          "flowFileExpiration" : "0 sec",
+          "groupIdentifier" : "fe98ae04-dd27-3233-926d-c414e4eff355",
+          "identifier" : "7d31290e-c8ee-302e-8974-51fe2d831795",
+          "labelIndex" : 1,
+          "loadBalanceCompression" : "DO_NOT_COMPRESS",
+          "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+          "name" : "",
+          "partitioningAttribute" : "",
+          "prioritizers" : [ ],
+          "selectedRelationships" : [ "split" ],
+          "source" : {
+            "comments" : "",
+            "groupId" : "fe98ae04-dd27-3233-926d-c414e4eff355",
+            "id" : "b55870cf-5371-3870-8e5b-3d303d32cc67",
+            "name" : "SplitAvro",
+            "type" : "PROCESSOR"
+          },
+          "zIndex" : 0
+        } ],
+        "controllerServices" : [ ],
+        "funnels" : [ ],
+        "identifier" : "fe98ae04-dd27-3233-926d-c414e4eff355",
+        "inputPorts" : [ ],
+        "labels" : [ ],
+        "name" : "api_to_database",
+        "outputPorts" : [ ],
+        "position" : {
+          "x" : -64.0,
+          "y" : 88.0
+        },
+        "processGroups" : [ ],
+        "processors" : [ {
+          "autoTerminatedRelationships" : [ "success", "failure", "retry" ],
+          "bulletinLevel" : "WARN",
+          "bundle" : {
+            "artifact" : "nifi-standard-nar",
+            "group" : "org.apache.nifi",
+            "version" : "1.11.2"
+          },
+          "comments" : "",
+          "componentType" : "PROCESSOR",
+          "concurrentlySchedulableTaskCount" : 1,
+          "executionNode" : "ALL",
+          "groupIdentifier" : "fe98ae04-dd27-3233-926d-c414e4eff355",
+          "identifier" : "bd26a540-38c5-3007-814e-3f7fbeb8d1aa",
+          "name" : "PutSQL",
+          "penaltyDuration" : "30 sec",
+          "position" : {
+            "x" : 1588.4999663993867,
+            "y" : 558.9638973765786
+          },
+          "properties" : {
+            "Support Fragmented Transactions" : "true",
+            "Batch Size" : "100",
+            "Obtain Generated Keys" : "false",
+            "JDBC Connection Pool" : "97fc7416-8281-3470-97e5-d8e88d7d99ad",
+            "database-session-autocommit" : "false",
+            "rollback-on-failure" : "false"
+          },
+          "propertyDescriptors" : {
+            "Support Fragmented Transactions" : {
+              "displayName" : "Support Fragmented Transactions",
+              "identifiesControllerService" : false,
+              "name" : "Support Fragmented Transactions",
+              "sensitive" : false
+            },
+            "putsql-sql-statement" : {
+              "displayName" : "SQL Statement",
+              "identifiesControllerService" : false,
+              "name" : "putsql-sql-statement",
+              "sensitive" : false
+            },
+            "Transaction Timeout" : {
+              "displayName" : "Transaction Timeout",
+              "identifiesControllerService" : false,
+              "name" : "Transaction Timeout",
+              "sensitive" : false
+            },
+            "Batch Size" : {
+              "displayName" : "Batch Size",
+              "identifiesControllerService" : false,
+              "name" : "Batch Size",
+              "sensitive" : false
+            },
+            "Obtain Generated Keys" : {
+              "displayName" : "Obtain Generated Keys",
+              "identifiesControllerService" : false,
+              "name" : "Obtain Generated Keys",
+              "sensitive" : false
+            },
+            "JDBC Connection Pool" : {
+              "displayName" : "JDBC Connection Pool",
+              "identifiesControllerService" : true,
+              "name" : "JDBC Connection Pool",
+              "sensitive" : false
+            },
+            "database-session-autocommit" : {
+              "displayName" : "Database Session AutoCommit",
+              "identifiesControllerService" : false,
+              "name" : "database-session-autocommit",
+              "sensitive" : false
+            },
+            "rollback-on-failure" : {
+              "displayName" : "Rollback On Failure",
+              "identifiesControllerService" : false,
+              "name" : "rollback-on-failure",
+              "sensitive" : false
+            }
+          },
+          "runDurationMillis" : 0,
+          "scheduledState" : "ENABLED",
+          "schedulingPeriod" : "0 sec",
+          "schedulingStrategy" : "TIMER_DRIVEN",
+          "style" : { },
+          "type" : "org.apache.nifi.processors.standard.PutSQL",
+          "yieldDuration" : "1 sec"
+        }, {
+          "autoTerminatedRelationships" : [ "original", "failure" ],
+          "bulletinLevel" : "WARN",
+          "bundle" : {
+            "artifact" : "nifi-standard-nar",
+            "group" : "org.apache.nifi",
+            "version" : "1.11.2"
+          },
+          "comments" : "",
+          "componentType" : "PROCESSOR",
+          "concurrentlySchedulableTaskCount" : 1,
+          "executionNode" : "ALL",
+          "groupIdentifier" : "fe98ae04-dd27-3233-926d-c414e4eff355",
+          "identifier" : "c5a529d6-55b2-3765-94cd-79bc9ae9b2c2",
+          "name" : "ConvertJSONToSQL",
+          "penaltyDuration" : "30 sec",
+          "position" : {
+            "x" : 1116.4999663993867,
+            "y" : 526.9638973765786
+          },
+          "properties" : {
+            "table-schema-cache-size" : "100",
+            "Table Name" : "timeseries1min",
+            "jts-sql-param-attr-prefix" : "sql",
+            "Schema Name" : "test",
+            "Unmatched Field Behavior" : "Ignore Unmatched Fields",
+            "Unmatched Column Behavior" : "Fail on Unmatched Columns",
+            "jts-quoted-identifiers" : "false",
+            "jts-quoted-table-identifiers" : "false",
+            "JDBC Connection Pool" : "97fc7416-8281-3470-97e5-d8e88d7d99ad",
+            "Translate Field Names" : "true",
+            "Statement Type" : "INSERT"
+          },
+          "propertyDescriptors" : {
+            "table-schema-cache-size" : {
+              "displayName" : "Table Schema Cache Size",
+              "identifiesControllerService" : false,
+              "name" : "table-schema-cache-size",
+              "sensitive" : false
+            },
+            "Table Name" : {
+              "displayName" : "Table Name",
+              "identifiesControllerService" : false,
+              "name" : "Table Name",
+              "sensitive" : false
+            },
+            "Catalog Name" : {
+              "displayName" : "Catalog Name",
+              "identifiesControllerService" : false,
+              "name" : "Catalog Name",
+              "sensitive" : false
+            },
+            "jts-sql-param-attr-prefix" : {
+              "displayName" : "SQL Parameter Attribute Prefix",
+              "identifiesControllerService" : false,
+              "name" : "jts-sql-param-attr-prefix",
+              "sensitive" : false
+            },
+            "Schema Name" : {
+              "displayName" : "Schema Name",
+              "identifiesControllerService" : false,
+              "name" : "Schema Name",
+              "sensitive" : false
+            },
+            "Unmatched Field Behavior" : {
+              "displayName" : "Unmatched Field Behavior",
+              "identifiesControllerService" : false,
+              "name" : "Unmatched Field Behavior",
+              "sensitive" : false
+            },
+            "Unmatched Column Behavior" : {
+              "displayName" : "Unmatched Column Behavior",
+              "identifiesControllerService" : false,
+              "name" : "Unmatched Column Behavior",
+              "sensitive" : false
+            },
+            "jts-quoted-identifiers" : {
+              "displayName" : "Quote Column Identifiers",
+              "identifiesControllerService" : false,
+              "name" : "jts-quoted-identifiers",
+              "sensitive" : false
+            },
+            "jts-quoted-table-identifiers" : {
+              "displayName" : "Quote Table Identifiers",
+              "identifiesControllerService" : false,
+              "name" : "jts-quoted-table-identifiers",
+              "sensitive" : false
+            },
+            "JDBC Connection Pool" : {
+              "displayName" : "JDBC Connection Pool",
+              "identifiesControllerService" : true,
+              "name" : "JDBC Connection Pool",
+              "sensitive" : false
+            },
+            "Update Keys" : {
+              "displayName" : "Update Keys",
+              "identifiesControllerService" : false,
+              "name" : "Update Keys",
+              "sensitive" : false
+            },
+            "Translate Field Names" : {
+              "displayName" : "Translate Field Names",
+              "identifiesControllerService" : false,
+              "name" : "Translate Field Names",
+              "sensitive" : false
+            },
+            "Statement Type" : {
+              "displayName" : "Statement Type",
+              "identifiesControllerService" : false,
+              "name" : "Statement Type",
+              "sensitive" : false
+            }
+          },
+          "runDurationMillis" : 0,
+          "scheduledState" : "ENABLED",
+          "schedulingPeriod" : "0 sec",
+          "schedulingStrategy" : "TIMER_DRIVEN",
+          "style" : { },
+          "type" : "org.apache.nifi.processors.standard.ConvertJSONToSQL",
+          "yieldDuration" : "1 sec"
+        }, {
+          "autoTerminatedRelationships" : [ "failure" ],
+          "bulletinLevel" : "WARN",
+          "bundle" : {
+            "artifact" : "nifi-avro-nar",
+            "group" : "org.apache.nifi",
+            "version" : "1.11.2"
+          },
+          "comments" : "",
+          "componentType" : "PROCESSOR",
+          "concurrentlySchedulableTaskCount" : 1,
+          "executionNode" : "ALL",
+          "groupIdentifier" : "fe98ae04-dd27-3233-926d-c414e4eff355",
+          "identifier" : "f3ef4ea2-c262-34cf-b16c-1f2506cb853d",
+          "name" : "ConvertAvroToJSON",
+          "penaltyDuration" : "30 sec",
+          "position" : {
+            "x" : 604.4999663993868,
+            "y" : 454.9638973765786
+          },
+          "properties" : {
+            "JSON container options" : "array",
+            "Wrap Single Record" : "false"
+          },
+          "propertyDescriptors" : {
+            "JSON container options" : {
+              "displayName" : "JSON container options",
+              "identifiesControllerService" : false,
+              "name" : "JSON container options",
+              "sensitive" : false
+            },
+            "Wrap Single Record" : {
+              "displayName" : "Wrap Single Record",
+              "identifiesControllerService" : false,
+              "name" : "Wrap Single Record",
+              "sensitive" : false
+            },
+            "Avro schema" : {
+              "displayName" : "Avro schema",
+              "identifiesControllerService" : false,
+              "name" : "Avro schema",
+              "sensitive" : false
+            }
+          },
+          "runDurationMillis" : 0,
+          "scheduledState" : "ENABLED",
+          "schedulingPeriod" : "0 sec",
+          "schedulingStrategy" : "TIMER_DRIVEN",
+          "style" : { },
+          "type" : "org.apache.nifi.processors.avro.ConvertAvroToJSON",
+          "yieldDuration" : "1 sec"
+        }, {
+          "autoTerminatedRelationships" : [ "original", "failure" ],
+          "bulletinLevel" : "WARN",
+          "bundle" : {
+            "artifact" : "nifi-avro-nar",
+            "group" : "org.apache.nifi",
+            "version" : "1.11.2"
+          },
+          "comments" : "",
+          "componentType" : "PROCESSOR",
+          "concurrentlySchedulableTaskCount" : 1,
+          "executionNode" : "ALL",
+          "groupIdentifier" : "fe98ae04-dd27-3233-926d-c414e4eff355",
+          "identifier" : "b55870cf-5371-3870-8e5b-3d303d32cc67",
+          "name" : "SplitAvro",
+          "penaltyDuration" : "30 sec",
+          "position" : {
+            "x" : 20.499966399386835,
+            "y" : 366.9638973765786
+          },
+          "properties" : {
+            "Split Strategy" : "Record",
+            "Output Strategy" : "Datafile",
+            "Transfer Metadata" : "true",
+            "Output Size" : "1"
+          },
+          "propertyDescriptors" : {
+            "Split Strategy" : {
+              "displayName" : "Split Strategy",
+              "identifiesControllerService" : false,
+              "name" : "Split Strategy",
+              "sensitive" : false
+            },
+            "Output Strategy" : {
+              "displayName" : "Output Strategy",
+              "identifiesControllerService" : false,
+              "name" : "Output Strategy",
+              "sensitive" : false
+            },
+            "Transfer Metadata" : {
+              "displayName" : "Transfer Metadata",
+              "identifiesControllerService" : false,
+              "name" : "Transfer Metadata",
+              "sensitive" : false
+            },
+            "Output Size" : {
+              "displayName" : "Output Size",
+              "identifiesControllerService" : false,
+              "name" : "Output Size",
+              "sensitive" : false
+            }
+          },
+          "runDurationMillis" : 0,
+          "scheduledState" : "ENABLED",
+          "schedulingPeriod" : "0 sec",
+          "schedulingStrategy" : "TIMER_DRIVEN",
+          "style" : { },
+          "type" : "org.apache.nifi.processors.avro.SplitAvro",
+          "yieldDuration" : "1 sec"
+        }, {
+          "autoTerminatedRelationships" : [ ],
+          "bulletinLevel" : "WARN",
+          "bundle" : {
+            "artifact" : "nifi-standard-nar",
+            "group" : "org.apache.nifi",
+            "version" : "1.11.2"
+          },
+          "comments" : "",
+          "componentType" : "PROCESSOR",
+          "concurrentlySchedulableTaskCount" : 1,
+          "executionNode" : "PRIMARY",
+          "groupIdentifier" : "fe98ae04-dd27-3233-926d-c414e4eff355",
+          "identifier" : "1c03821f-0bee-3c3d-a0c8-1b485b626068",
+          "name" : "QueryDatabaseTable",
+          "penaltyDuration" : "30 sec",
+          "position" : {
+            "x" : -91.50003360061316,
+            "y" : 110.96389737657859
+          },
+          "properties" : {
+            "Table Name" : "TIMESERIES1MIN",
+            "db-fetch-db-type" : "Generic",
+            "dbf-default-precision" : "10",
+            "Max Wait Time" : "0 seconds",
+            "Database Connection Pooling Service" : "02012382-d0cb-3802-964d-fb5d30cb7e1f",
+            "dbf-user-logical-types" : "false",
+            "qdbt-output-batch-size" : "0",
+            "qdbt-max-rows" : "0",
+            "qdbt-max-frags" : "0",
+            "dbf-default-scale" : "0",
+            "Fetch Size" : "0",
+            "dbf-normalize" : "false"
+          },
+          "propertyDescriptors" : {
+            "Table Name" : {
+              "displayName" : "Table Name",
+              "identifiesControllerService" : false,
+              "name" : "Table Name",
+              "sensitive" : false
+            },
+            "db-fetch-db-type" : {
+              "displayName" : "Database Type",
+              "identifiesControllerService" : false,
+              "name" : "db-fetch-db-type",
+              "sensitive" : false
+            },
+            "dbf-default-precision" : {
+              "displayName" : "Default Decimal Precision",
+              "identifiesControllerService" : false,
+              "name" : "dbf-default-precision",
+              "sensitive" : false
+            },
+            "Max Wait Time" : {
+              "displayName" : "Max Wait Time",
+              "identifiesControllerService" : false,
+              "name" : "Max Wait Time",
+              "sensitive" : false
+            },
+            "Database Connection Pooling Service" : {
+              "displayName" : "Database Connection Pooling Service",
+              "identifiesControllerService" : true,
+              "name" : "Database Connection Pooling Service",
+              "sensitive" : false
+            },
+            "Maximum-value Columns" : {
+              "displayName" : "Maximum-value Columns",
+              "identifiesControllerService" : false,
+              "name" : "Maximum-value Columns",
+              "sensitive" : false
+            },
+            "dbf-user-logical-types" : {
+              "displayName" : "Use Avro Logical Types",
+              "identifiesControllerService" : false,
+              "name" : "dbf-user-logical-types",
+              "sensitive" : false
+            },
+            "qdbt-output-batch-size" : {
+              "displayName" : "Output Batch Size",
+              "identifiesControllerService" : false,
+              "name" : "qdbt-output-batch-size",
+              "sensitive" : false
+            },
+            "qdbt-max-rows" : {
+              "displayName" : "Max Rows Per Flow File",
+              "identifiesControllerService" : false,
+              "name" : "qdbt-max-rows",
+              "sensitive" : false
+            },
+            "qdbt-max-frags" : {
+              "displayName" : "Maximum Number of Fragments",
+              "identifiesControllerService" : false,
+              "name" : "qdbt-max-frags",
+              "sensitive" : false
+            },
+            "dbf-default-scale" : {
+              "displayName" : "Default Decimal Scale",
+              "identifiesControllerService" : false,
+              "name" : "dbf-default-scale",
+              "sensitive" : false
+            },
+            "Fetch Size" : {
+              "displayName" : "Fetch Size",
+              "identifiesControllerService" : false,
+              "name" : "Fetch Size",
+              "sensitive" : false
+            },
+            "db-fetch-sql-query" : {
+              "displayName" : "Custom Query",
+              "identifiesControllerService" : false,
+              "name" : "db-fetch-sql-query",
+              "sensitive" : false
+            },
+            "Columns to Return" : {
+              "displayName" : "Columns to Return",
+              "identifiesControllerService" : false,
+              "name" : "Columns to Return",
+              "sensitive" : false
+            },
+            "db-fetch-where-clause" : {
+              "displayName" : "Additional WHERE clause",
+              "identifiesControllerService" : false,
+              "name" : "db-fetch-where-clause",
+              "sensitive" : false
+            },
+            "dbf-normalize" : {
+              "displayName" : "Normalize Table/Column Names",
+              "identifiesControllerService" : false,
+              "name" : "dbf-normalize",
+              "sensitive" : false
+            },
+            "transaction-isolation-level" : {
+              "displayName" : "Transaction Isolation Level",
+              "identifiesControllerService" : false,
+              "name" : "transaction-isolation-level",
+              "sensitive" : false
+            }
+          },
+          "runDurationMillis" : 0,
+          "scheduledState" : "ENABLED",
+          "schedulingPeriod" : "0 sec",
+          "schedulingStrategy" : "TIMER_DRIVEN",
+          "style" : { },
+          "type" : "org.apache.nifi.processors.standard.QueryDatabaseTable",
+          "yieldDuration" : "1 sec"
+        } ],
+        "remoteProcessGroups" : [ ],
+        "variables" : { }
+      },
+      "flowEncodingVersion" : "1.0",
+      "parameterContexts" : { }
+    }
+  }
+}
